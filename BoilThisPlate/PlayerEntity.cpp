@@ -51,8 +51,7 @@ PlayerEntity::PlayerEntity(sf::Texture* pTexture)
     mSprite.setTexture(*pTexture);
 
     // set pixels to large!
-    mSprite.setScale(4.f,4.f);
-
+    mSprite.setScale(4,4);
 
     readFramesDataFromFile("assets/hoodie_spritesheet.xml");
 
@@ -81,13 +80,13 @@ void PlayerEntity::update(sf::Time deltaTime)
 
 
     const float playerRunForce = 0.05f;
-    const float playerJumpForce = -3.3f;
+    const float playerJumpForce = -2.3f;
     const int climbAgainDelay = 5;
     static int framesSinceClimbing=climbAgainDelay;
 
     framesSinceClimbing++;
     mFramesUntilHealthy--;
-    
+
     if (mPosition.y<horizon) {
         mIsFalling=true;
     } else {
@@ -120,7 +119,7 @@ void PlayerEntity::update(sf::Time deltaTime)
 
 
     mIsHurting=(mFramesUntilHealthy>1);
-    
+
 
     // ducking is true if we are on the ground and pressing duck. false in either is not true.
     mIsDucking=!mIsFalling&&bDuckKeyPressed&&!mIsClimbing;
@@ -361,7 +360,6 @@ void PlayerEntity::update(sf::Time deltaTime)
     mVelocity*=0.9f;
     mVelocity+=mAcceleration;
     mPosition+=mVelocity;
-    mSprite.setPosition(mPosition.x*4,mPosition.y*4);
 
 
     mFramesUntilNextAnimationFrame--;
@@ -370,11 +368,11 @@ void PlayerEntity::update(sf::Time deltaTime)
 void PlayerEntity::render()
 {
     int x=0, y=0, w=0, h=0, oX=0, oY=0; // these we'll eventually read from xml
-    int spriteOffsetX=0, spriteOffsetY=-28;
+    int spriteOffsetX=0, spriteOffsetY=mIsDucking?-24:-28;
 
     if (mFacing==RIGHT)
     {
-        spriteOffsetX = -24;
+        spriteOffsetX = -12;
 
         x=mFramesData.at(mFrame).x;
         y=mFramesData.at(mFrame).y;
@@ -386,7 +384,7 @@ void PlayerEntity::render()
 
     else if (mFacing==LEFT)
     {
-        spriteOffsetX=0;
+        spriteOffsetX=0-mFramesData.at(mFrame).w;
 
         x=mFramesData.at(mFrame).x+mFramesData.at(mFrame).w;
         y=mFramesData.at(mFrame).y;
@@ -401,9 +399,11 @@ void PlayerEntity::render()
 
 
     if (!(mIsHurting&&(mAge%10<5))) {
+
+    mSprite.setPosition((mPosition.x+spriteOffsetX)*4,(mPosition.y+spriteOffsetY)*4);
     TheGame::Instance()->getRenderTexture()->draw(mSprite);
     }
-    //TheGame::Instance()->drawMarker(mPosition.x, mPosition.y-64);
+    TheGame::Instance()->drawMarker(mPosition.x, mPosition.y);
 }
 
 void PlayerEntity::receiveCollision(Entity * SourceEntity)
@@ -415,5 +415,3 @@ void PlayerEntity::receiveCollision(Entity * SourceEntity)
         mJustGotHit=true;
     }
 }
-
-

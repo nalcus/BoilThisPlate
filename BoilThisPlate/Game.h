@@ -16,7 +16,9 @@ bool checkDocError (tinyxml2::XMLDocument &rDoc);
 class Game
 {
 public:
-    
+
+    static const int Scale; 
+
     // return instance for singleton
     static Game * Instance()
     {
@@ -27,9 +29,10 @@ public:
         }
         return s_pInstance;
     }
-    
+
     void run();
-    
+    void drawMarker(int x, int y);
+
     sf::RenderWindow * getWindow()
     {
         return &mWindow;
@@ -40,7 +43,7 @@ public:
     }
     int getDisplayWidth() {return DisplayWidth;}
     int getDisplayHeight() {return DisplayHeight;}
-    
+
 private:
     Game();
     void processEvents();
@@ -48,29 +51,29 @@ private:
     void render();
     void updateStatistics(sf::Time elapsedTime);
     static Game* s_pInstance;
-    
+
     sf::RenderWindow mWindow;
     sf::RenderTexture mRenderTexture;
     sf::Sprite mRenderSprite;
     sf::Sprite mMarkerSprite;
-    
-    
+
+
     static const sf::Time	TimePerFrame;
     static const int DisplayWidth;
     static const int DisplayHeight;
     static const bool Fullscreen;
     static const bool VSync;
-    
-    
+
+
     sf::Font				mFont;
     sf::Text				mStatisticsText;
     sf::Time				mStatisticsUpdateTime;
     std::size_t				mStatisticsNumFrames;
     std::size_t				mStatisticsTotalFrames;
-    
+
     sf::Texture mPlayerTexture;
     sf::Texture mMarker;
-    
+
 
 };
 
