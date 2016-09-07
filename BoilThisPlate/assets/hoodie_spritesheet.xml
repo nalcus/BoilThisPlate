@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:1fda217e236a0de41e3fda9cacd88909:d2283d2a832881a973ec09cf9a68c0a9:74668ea660bc69b12072dd3cede46064$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="hoodie_spritesheet.png" width="29" height="398">
+    <sprite n="attack_1a.png" x="2" y="2" w="25" h="29" pX="0.5" pY="0.5" oX="18" oY="0" oW="48" oH="32" mX="0"/>
+    <sprite n="attack_1b.png" x="2" y="33" w="16" h="29" pX="0.5" pY="0.5" oX="18" oY="0" oW="48" oH="32" mX="9"/>
+    <sprite n="climb_1a.png" x="2" y="64" w="15" h="23" pX="0.5" pY="0.5" oX="13" oY="2" oW="48" oH="32" mX="10"/>
+    <sprite n="climb_1b.png" x="2" y="89" w="15" h="23" pX="0.5" pY="0.5" oX="13" oY="2" oW="48" oH="32" mX="10"/>
+    <sprite n="climbthrow_1.png" x="2" y="114" w="19" h="23" pX="0.5" pY="0.5" oX="13" oY="2" oW="48" oH="32" mX="6"/>
+    <sprite n="duck_1.png" x="2" y="139" w="14" h="24" pX="0.5" pY="0.5" oX="18" oY="5" oW="48" oH="32" mX="11"/>
+    <sprite n="duckattack_1a.png" x="2" y="165" w="25" h="24" pX="0.5" pY="0.5" oX="18" oY="5" oW="48" oH="32" mX="0"/>
+    <sprite n="duckattack_1b.png" x="2" y="191" w="16" h="24" pX="0.5" pY="0.5" oX="18" oY="5" oW="48" oH="32" mX="9"/>
+    <sprite n="idle_1.png" x="2" y="217" w="13" h="29" pX="0.5" pY="0.5" oX="18" oY="0" oW="48" oH="32" mX="12"/>
+    <sprite n="jump_1.png" x="2" y="248" w="15" h="32" pX="0.5" pY="0.5" oX="15" oY="0" oW="48" oH="32" mX="10"/>
+    <sprite n="roll_1.png" x="2" y="282" w="16" h="23" pX="0.5" pY="0.5" oX="18" oY="6" oW="48" oH="32" mX="9"/>
+    <sprite n="run_1a.png" x="2" y="307" w="16" h="29" pX="0.5" pY="0.5" oX="14" oY="0" oW="48" oH="32" mX="9"/>
+    <sprite n="run_1b.png" x="2" y="338" w="15" h="28" pX="0.5" pY="0.5" oX="15" oY="0" oW="48" oH="32" mX="10"/>
+    <sprite n="run_1c.png" x="2" y="368" w="15" h="28" pX="0.5" pY="0.5" oX="15" oY="0" oW="48" oH="32" mX="10"/>
+</TextureAtlas>

@@ -1,0 +1,352 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A3E013131D7F5D1000E12ECA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E013121D7F5D1000E12ECA /* main.cpp */; };
+		A3E013241D7F5FDA00E12ECA /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3E013231D7F5FDA00E12ECA /* assets */; };
+		A3E013271D7F624500E12ECA /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E013261D7F624500E12ECA /* Game.cpp */; };
+		A3E0132A1D7F9D4600E12ECA /* PlayerEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E013291D7F9D4600E12ECA /* PlayerEntity.cpp */; };
+		A3E013321D7F9DD600E12ECA /* Projectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E013301D7F9DD600E12ECA /* Projectile.cpp */; };
+		A3E013331D7F9DD600E12ECA /* Randomizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E013311D7F9DD600E12ECA /* Randomizer.cpp */; };
+		A3E013371D7F9E0200E12ECA /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E013351D7F9E0200E12ECA /* Entity.cpp */; };
+		A3E013381D7F9E0200E12ECA /* EntityManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E013361D7F9E0200E12ECA /* EntityManager.cpp */; };
+		A3E0133B1D7F9F8A00E12ECA /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E0133A1D7F9F8A00E12ECA /* tinyxml2.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A3E013221D7F5FA500E12ECA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				A3E013241D7F5FDA00E12ECA /* assets in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A3E0130A1D7F5D1000E12ECA /* BoilThisPlate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoilThisPlate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3E0130E1D7F5D1000E12ECA /* BoilThisPlate-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BoilThisPlate-Info.plist"; sourceTree = "<group>"; };
+		A3E013121D7F5D1000E12ECA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A3E013231D7F5FDA00E12ECA /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = BoilThisPlate/assets; sourceTree = "<group>"; };
+		A3E013251D7F616500E12ECA /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		A3E013261D7F624500E12ECA /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		A3E013281D7F97AD00E12ECA /* StringHelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringHelp.h; sourceTree = "<group>"; };
+		A3E013291D7F9D4600E12ECA /* PlayerEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerEntity.cpp; sourceTree = "<group>"; };
+		A3E0132B1D7F9D5700E12ECA /* PlayerEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerEntity.h; sourceTree = "<group>"; };
+		A3E0132C1D7F9D7700E12ECA /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		A3E0132D1D7F9D9D00E12ECA /* frameData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = frameData.h; sourceTree = "<group>"; };
+		A3E0132E1D7F9DB500E12ECA /* Randomizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Randomizer.h; sourceTree = "<group>"; };
+		A3E0132F1D7F9DC900E12ECA /* Projectile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
+		A3E013301D7F9DD600E12ECA /* Projectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Projectile.cpp; sourceTree = "<group>"; };
+		A3E013311D7F9DD600E12ECA /* Randomizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Randomizer.cpp; sourceTree = "<group>"; };
+		A3E013341D7F9DF300E12ECA /* EntityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntityManager.h; sourceTree = "<group>"; };
+		A3E013351D7F9E0200E12ECA /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		A3E013361D7F9E0200E12ECA /* EntityManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityManager.cpp; sourceTree = "<group>"; };
+		A3E013391D7F9F0A00E12ECA /* tinyxml2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tinyxml2.h; sourceTree = "<group>"; };
+		A3E0133A1D7F9F8A00E12ECA /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml2.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A3E013061D7F5D1000E12ECA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A3E013001D7F5D1000E12ECA = {
+			isa = PBXGroup;
+			children = (
+				A3E013231D7F5FDA00E12ECA /* assets */,
+				A3E0130C1D7F5D1000E12ECA /* BoilThisPlate */,
+				A3E0130B1D7F5D1000E12ECA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A3E0130B1D7F5D1000E12ECA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3E0130A1D7F5D1000E12ECA /* BoilThisPlate.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3E0130C1D7F5D1000E12ECA /* BoilThisPlate */ = {
+			isa = PBXGroup;
+			children = (
+				A3E0133A1D7F9F8A00E12ECA /* tinyxml2.cpp */,
+				A3E013351D7F9E0200E12ECA /* Entity.cpp */,
+				A3E013361D7F9E0200E12ECA /* EntityManager.cpp */,
+				A3E013291D7F9D4600E12ECA /* PlayerEntity.cpp */,
+				A3E013301D7F9DD600E12ECA /* Projectile.cpp */,
+				A3E013311D7F9DD600E12ECA /* Randomizer.cpp */,
+				A3E013121D7F5D1000E12ECA /* main.cpp */,
+				A3E0130D1D7F5D1000E12ECA /* Supporting Files */,
+				A3E013251D7F616500E12ECA /* Game.h */,
+				A3E013261D7F624500E12ECA /* Game.cpp */,
+				A3E0132F1D7F9DC900E12ECA /* Projectile.h */,
+				A3E0132C1D7F9D7700E12ECA /* Entity.h */,
+				A3E013341D7F9DF300E12ECA /* EntityManager.h */,
+				A3E013281D7F97AD00E12ECA /* StringHelp.h */,
+				A3E0132D1D7F9D9D00E12ECA /* frameData.h */,
+				A3E0132E1D7F9DB500E12ECA /* Randomizer.h */,
+				A3E013391D7F9F0A00E12ECA /* tinyxml2.h */,
+				A3E0132B1D7F9D5700E12ECA /* PlayerEntity.h */,
+			);
+			path = BoilThisPlate;
+			sourceTree = "<group>";
+		};
+		A3E0130D1D7F5D1000E12ECA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3E0130E1D7F5D1000E12ECA /* BoilThisPlate-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A3E013091D7F5D1000E12ECA /* BoilThisPlate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3E0131F1D7F5D1000E12ECA /* Build configuration list for PBXNativeTarget "BoilThisPlate" */;
+			buildPhases = (
+				A3E013051D7F5D1000E12ECA /* Sources */,
+				A3E013061D7F5D1000E12ECA /* Frameworks */,
+				A3E013071D7F5D1000E12ECA /* Resources */,
+				A3E013081D7F5D1000E12ECA /* ShellScript */,
+				A3E013221D7F5FA500E12ECA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoilThisPlate;
+			productName = BoilThisPlate;
+			productReference = A3E0130A1D7F5D1000E12ECA /* BoilThisPlate.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A3E013011D7F5D1000E12ECA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Nicholas Alcus";
+				TargetAttributes = {
+					A3E013091D7F5D1000E12ECA = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = A3E013041D7F5D1000E12ECA /* Build configuration list for PBXProject "BoilThisPlate" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A3E013001D7F5D1000E12ECA;
+			productRefGroup = A3E0130B1D7F5D1000E12ECA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A3E013091D7F5D1000E12ECA /* BoilThisPlate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A3E013071D7F5D1000E12ECA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A3E013081D7F5D1000E12ECA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This shell script simply copies required SFML dylibs/frameworks into the application bundle frameworks folder.\n# If you're using static libraries (which is not recommended) you should remove this script from your project.\n\n# SETTINGS\nCMAKE_INSTALL_FRAMEWORK_PREFIX=\"/Library/Frameworks\"\nCMAKE_INSTALL_LIB_PREFIX=\"/usr/local/lib\"\nFRAMEWORKS_FULL_PATH=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\n\n# Are we building a project that uses frameworks or dylibs?\ncase \"$SFML_BINARY_TYPE\" in\n    DYLIBS)\n        frameworks=\"false\"\n        ;;\n    *)\n        frameworks=\"true\"\n        ;;\nesac\n\n# Echoes to stderr\nerror () # $* message to display\n{\n    echo $* 1>&2\n    exit 2\n}\n\nassert () # $1 is a boolean, $2...N is an error message\n{\n    if [ $# -lt 2 ]\n    then\n        error \"Internal error in assert: not enough args\"\n    fi\n\n    if [ $1 -ne 0 ]\n    then\n        shift\n        error \"$*\"\n    fi\n}\n\nforce_remove () # $@ is some paths\n{\n    test $# -ge 1\n    assert $? \"force_remove() requires at least one parameter\"\n    rm -fr $@\n    assert $? \"couldn't remove $@\"\n}\n\ncopy () # $1 is a source, $2 is a destination\n{\n    test $# -eq 2\n    assert $? \"copy() requires two parameters\"\n    ditto \"$1\" \"$2\"\n    assert $? \"couldn't copy $1 to $2\"\n}\n\nrequire () # $1 is a SFML module like 'system' or 'audio'\n{\n    dest=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\n\n    if [ -z \"$1\" ]\n    then\n        error \"require() requires one parameter!\"\n    else\n        # clean potentially old stuff\n        force_remove \"$dest/libsfml-$1\"*\n        force_remove \"$dest/sfml-$1.framework\"\n\n        # copy SFML libraries\n        if [ \"$frameworks\" = \"true\" ]\n        then\n            source=\"$CMAKE_INSTALL_FRAMEWORK_PREFIX/sfml-$1.framework\"\n            target=\"sfml-$1.framework\"\n        elif [ \"$SFML_LINK_DYLIBS_SUFFIX\" = \"-d\" ]\n        then\n            source=\"$CMAKE_INSTALL_LIB_PREFIX/libsfml-$1-d.dylib\"\n            target=\"`readlink $source`\"\n        else\n            source=\"$CMAKE_INSTALL_LIB_PREFIX/libsfml-$1.dylib\"\n            target=\"`readlink $source`\"\n        fi\n\n        copy \"$source\" \"$dest/$target\"\n\n        # copy extra dependencies\n        if [ \"$1\" = \"audio\" ]\n        then\n            # copy \"FLAC\" \"ogg\" \"vorbis\" \"vorbisenc\" \"vorbisfile\" \"OpenAL\" frameworks too\n            for f in \"FLAC\" \"ogg\" \"vorbis\" \"vorbisenc\" \"vorbisfile\" \"OpenAL\"\n            do\n                copy \"$CMAKE_INSTALL_FRAMEWORK_PREFIX/$f.framework\" \"$dest/$f.framework\"\n            done\n        elif [ \"$1\" = \"graphics\" ]\n        then\n            copy \"$CMAKE_INSTALL_FRAMEWORK_PREFIX/freetype.framework\" \"$dest/freetype.framework\"\n        fi\n    fi\n}\n\nif [ -n \"$SFML_SYSTEM\" ]\nthen\n    require \"system\"\nfi\n\nif [ -n \"$SFML_AUDIO\" ]\nthen\n    require \"audio\"\nfi\n\nif [ -n \"$SFML_NETWORK\" ]\nthen\n    require \"network\"\nfi\n\nif [ -n \"$SFML_WINDOW\" ]\nthen\n    require \"window\"\nfi\n\nif [ -n \"$SFML_GRAPHICS\" ]\nthen\n    require \"graphics\"\nfi\n\n                ";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A3E013051D7F5D1000E12ECA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3E013321D7F9DD600E12ECA /* Projectile.cpp in Sources */,
+				A3E013331D7F9DD600E12ECA /* Randomizer.cpp in Sources */,
+				A3E013271D7F624500E12ECA /* Game.cpp in Sources */,
+				A3E0132A1D7F9D4600E12ECA /* PlayerEntity.cpp in Sources */,
+				A3E0133B1D7F9F8A00E12ECA /* tinyxml2.cpp in Sources */,
+				A3E013371D7F9E0200E12ECA /* Entity.cpp in Sources */,
+				A3E013381D7F9E0200E12ECA /* EntityManager.cpp in Sources */,
+				A3E013131D7F5D1000E12ECA /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A3E0131D1D7F5D1000E12ECA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					x86_64,
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = FRAMEWORKS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "$(SFML_LINK_PREFIX) sfml-network$(SFML_LINK_SUFFIX)";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Debug;
+		};
+		A3E0131E1D7F5D1000E12ECA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					x86_64,
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = FRAMEWORKS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "$(SFML_LINK_PREFIX) sfml-network$(SFML_LINK_SUFFIX)";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Release;
+		};
+		A3E013201D7F5D1000E12ECA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "BoilThisPlate/BoilThisPlate-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A3E013211D7F5D1000E12ECA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "BoilThisPlate/BoilThisPlate-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A3E013041D7F5D1000E12ECA /* Build configuration list for PBXProject "BoilThisPlate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3E0131D1D7F5D1000E12ECA /* Debug */,
+				A3E0131E1D7F5D1000E12ECA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3E0131F1D7F5D1000E12ECA /* Build configuration list for PBXNativeTarget "BoilThisPlate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3E013201D7F5D1000E12ECA /* Debug */,
+				A3E013211D7F5D1000E12ECA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A3E013011D7F5D1000E12ECA /* Project object */;
+}
