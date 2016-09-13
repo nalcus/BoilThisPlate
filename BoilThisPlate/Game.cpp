@@ -13,6 +13,9 @@
 #include "Game.h"
 #include "PlayerEntity.h"
 #include "EntityManager.h"
+#include "Randomizer.h"
+#include "Camera.hpp"
+#include "MapManager.h"
 
 // singleton stuff
 Game* Game::s_pInstance = 0;
@@ -23,7 +26,6 @@ const int Game::DisplayWidth = 1920;
 const int Game::DisplayHeight = 1080;
 const bool Game::Fullscreen = false;
 const bool Game::VSync = true;
-const int Game::Scale = 4;
 
 bool checkDocError (tinyxml2::XMLDocument &rDoc)
 {
@@ -45,7 +47,7 @@ Game::Game()
 
 , mMarker ()
 , mMarkerSprite()
-, mFont()
+, mStatisticsFont()
 , mStatisticsText()
 {
 
@@ -56,10 +58,7 @@ Game::Game()
     mWindow.setMouseCursorVisible(false);
 
     // reseed random number generator
-    //reseedRandomizer();
-
-    // set camera offset
-    //mCameraOffset=sf::Vector2f(0,0);
+    reseedRandomizer();
 
     mRenderTexture.create(DisplayWidth, DisplayHeight);
     mRenderSprite.setTexture(mRenderTexture.getTexture());
@@ -73,15 +72,34 @@ Game::Game()
     {
         std::cout << "didn't load file marker" << std::endl;
     }
+    
+    if (!mMapTileset.loadFromFile("assets/platformertiles.png"))
+    {
+        std::cout << "didn't load file platformertiles" << std::endl;
+    }
+    
+    if (!TheMapManager::Instance()->init())
+    {
+        std::cout << "map init failed!" << std::endl;
+    }
+    
+    TheMapManager::Instance()->setTileset(&mMapTileset);
 
     mMarkerSprite.setTexture(mMarker);
+    
+    mSmallFont.loadFromFile("assets/00TT.TTF");
+    mSmallText.setFont(mSmallFont);
+    mSmallText.setColor(sf::Color::White);
+    mSmallText.setPosition(24.f, DisplayHeight-90.f);
+    mSmallText.setCharacterSize(16);
 
-    mFont.loadFromFile("assets/04B_25__.TTF");
-    mStatisticsText.setFont(mFont);
+    mStatisticsFont.loadFromFile("assets/04B_25__.TTF");
+    mStatisticsText.setFont(mStatisticsFont);
     mStatisticsText.setColor(sf::Color::White);
-    mStatisticsText.setPosition(24.f, DisplayHeight-90.f);
+    mStatisticsText.setPosition(24.f, DisplayHeight-180.f);
     mStatisticsText.setCharacterSize(20);
-
+    
+    Scale = 4.f;
 
     // add Player
 
@@ -112,6 +130,8 @@ void Game::run()
 
 }
 
+
+// process os events
 void Game::processEvents()
 {
     sf::Event event;
@@ -140,6 +160,20 @@ void Game::update(sf::Time deltaTime)
 {
     // update each game entity by time slice
     TheEntityManager::Instance()->update(deltaTime);
+    
+    TheCamera::Instance()->update();
+}
+
+void Game::zoomIn()
+{
+    Scale+=0.03f;
+    if (Scale>10) Scale=10;
+}
+
+void Game::zoomOut()
+{
+    Scale-=0.03f;
+    if (Scale<2) Scale=2;
 }
 
 void Game::render()
@@ -148,7 +182,10 @@ void Game::render()
     mRenderTexture.clear(sf::Color::Black);
 
     // draw the map first
-    //TheMapManager::Instance()->render();
+    TheMapManager::Instance()->render();
+    
+    // grid over map
+    //drawGrid();
 
     // draw the entities next
     TheEntityManager::Instance()->render();
@@ -182,7 +219,10 @@ void Game::updateStatistics(sf::Time elapsedTime)
         mStatisticsText.setString(
                                   "BoilThisPlate\nFrames / Second = " + toString(mStatisticsNumFrames) + "\n" +
                                   "Time / Update = " + toString(mStatisticsUpdateTime.asMicroseconds() / mStatisticsNumFrames) + "us\n" +
-                                  "Total Frames = " + toString(mStatisticsTotalFrames)
+                                  "Total Frames = " + toString(mStatisticsTotalFrames) +
+                                  "\nScale = " + toString(Scale)
+                                  +"\nCameraOffsetX = " + toString(TheCamera::Instance()->getOffset().x)
+                                  +"\nCameraOffsetY = " + toString(TheCamera::Instance()->getOffset().y)
                                   );
 
         mStatisticsUpdateTime -= sf::seconds(1.0f);
@@ -193,6 +233,51 @@ void Game::updateStatistics(sf::Time elapsedTime)
 
 void Game::drawMarker(int x, int y)
 {
-    mMarkerSprite.setPosition((x-4)*Scale,(y-4)*Scale);
+    float sx=((x-TheCamera::Instance()->getOffset().x)*Scale);
+    float sy=((y-TheCamera::Instance()->getOffset().y)*Scale);
+    mMarkerSprite.setPosition(sx-4,
+                              sy-4);
     mRenderTexture.draw(mMarkerSprite);
+    mSmallText.setPosition(sx-4, sy-32);
+    mSmallText.setString(
+                              "World: ("+toString(x)+", "+toString(y)+")\n"+
+                              "Screen: ("+toString(sx)+", "+toString(sy)+")\n"
+                              );
+    mRenderTexture.draw(mSmallText);
+}
+
+void Game::drawGrid()
+{
+    int gridSize=32;
+    sf::RectangleShape boxy = sf::RectangleShape();
+    int lBound=0;
+    int rBound=TheMapManager::Instance()->getMapWidth()*gridSize;
+    int tbound=16;
+    int bbound=TheMapManager::Instance()->getMapHeight()*gridSize;
+    
+    
+    for (int i=lBound;i<rBound;i+=gridSize)
+    {
+        for (int j=tbound; j<bbound;j+=gridSize)
+    {
+        int x=(i-TheCamera::Instance()->getOffset().x)*Scale;
+        int y=(j-TheCamera::Instance()->getOffset().y)*Scale;
+        if (x<DisplayWidth&&y<DisplayHeight)
+              {
+    boxy.setPosition(sf::Vector2f(x,y));
+    boxy.setOutlineColor(sf::Color(255,255,255,128.f));
+    boxy.setOutlineThickness(1);
+    boxy.setFillColor(sf::Color(0,0,0,0));
+    boxy.setSize(sf::Vector2f(gridSize*Scale,gridSize*Scale));
+    getRenderTexture()->draw(boxy);
+       
+        mSmallText.setPosition(x,y);
+        mSmallText.setString(
+                             "W:("+toString(i)+", "+toString(j)+")\n"+
+                             "S:("+toString(x)+", "+toString(y)+")\n"
+                             );
+        mRenderTexture.draw(mSmallText);
+        }
+    }
+    }
 }

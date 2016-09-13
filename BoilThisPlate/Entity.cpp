@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "tinyxml2.h"
 #include <iostream>
+#include "Camera.hpp"
 
 Entity::Entity()
 {
@@ -110,12 +111,12 @@ void Entity::drawBoundingBox()
 {
 
     sf::RectangleShape boundy = sf::RectangleShape();
-    boundy.setPosition(mPosition.x-mSize.x/2,mPosition.y-mSize.y);
+    boundy.setPosition((mPosition.x-mSize.x/2-TheCamera::Instance()->getOffset().x)*TheGame::Instance()->getScale(),(mPosition.y-mSize.y-TheCamera::Instance()->getOffset().y)*TheGame::Instance()->getScale());
     boundy.setOutlineColor(sf::Color(255,0,0,255.f));
     boundy.setOutlineThickness(2);
     boundy.setFillColor(sf::Color(0,0,0,0));
     //boundy.move(sf::Vector2f(-16.f,-16.f));
-    boundy.setSize(mSize);
+    boundy.setSize(sf::Vector2f(mSize.x*TheGame::Instance()->getScale(),mSize.y*TheGame::Instance()->getScale()));
     TheGame::Instance()->getRenderTexture()->draw(boundy);
 }
 

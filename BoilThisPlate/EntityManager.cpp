@@ -117,7 +117,31 @@ void     EntityManager::render()
 
 }
 
+Entity* EntityManager::getPlayer()
+{
+    std::string En="PLAYER";
+    
+    if (!mEntities.empty())
+    {
+        for (unsigned int i=0; i<mEntities.size(); i++)
+        {
+            
+            if(*mEntities.at(i)->getType()==En)
+            {
+                return mEntities.at(i);
+            }
+            
+        }
+        
+        
+    }
+
+
+}
+
 void EntityManager::pushEntity(Entity * pEntity)
 {
     mEntities.push_back(pEntity);
 }
+
+

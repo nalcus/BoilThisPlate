@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A35DC3B21D81FE2000995F07 /* MapManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A35DC3B01D81FE2000995F07 /* MapManager.cpp */; };
 		A3E013131D7F5D1000E12ECA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E013121D7F5D1000E12ECA /* main.cpp */; };
 		A3E013241D7F5FDA00E12ECA /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3E013231D7F5FDA00E12ECA /* assets */; };
 		A3E013271D7F624500E12ECA /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E013261D7F624500E12ECA /* Game.cpp */; };
@@ -16,6 +17,7 @@
 		A3E013371D7F9E0200E12ECA /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E013351D7F9E0200E12ECA /* Entity.cpp */; };
 		A3E013381D7F9E0200E12ECA /* EntityManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E013361D7F9E0200E12ECA /* EntityManager.cpp */; };
 		A3E0133B1D7F9F8A00E12ECA /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3E0133A1D7F9F8A00E12ECA /* tinyxml2.cpp */; };
+		A3F8B69B1D807A490021A53E /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3F8B6991D807A490021A53E /* Camera.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +34,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A35DC3B01D81FE2000995F07 /* MapManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapManager.cpp; sourceTree = "<group>"; };
+		A35DC3B11D81FE2000995F07 /* MapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapManager.h; sourceTree = "<group>"; };
 		A3E0130A1D7F5D1000E12ECA /* BoilThisPlate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoilThisPlate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E0130E1D7F5D1000E12ECA /* BoilThisPlate-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BoilThisPlate-Info.plist"; sourceTree = "<group>"; };
 		A3E013121D7F5D1000E12ECA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 		A3E013361D7F9E0200E12ECA /* EntityManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityManager.cpp; sourceTree = "<group>"; };
 		A3E013391D7F9F0A00E12ECA /* tinyxml2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tinyxml2.h; sourceTree = "<group>"; };
 		A3E0133A1D7F9F8A00E12ECA /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml2.cpp; sourceTree = "<group>"; };
+		A3F8B6991D807A490021A53E /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		A3F8B69A1D807A490021A53E /* Camera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,21 +94,25 @@
 				A3E0133A1D7F9F8A00E12ECA /* tinyxml2.cpp */,
 				A3E013351D7F9E0200E12ECA /* Entity.cpp */,
 				A3E013361D7F9E0200E12ECA /* EntityManager.cpp */,
+				A3E013341D7F9DF300E12ECA /* EntityManager.h */,
 				A3E013291D7F9D4600E12ECA /* PlayerEntity.cpp */,
 				A3E013301D7F9DD600E12ECA /* Projectile.cpp */,
 				A3E013311D7F9DD600E12ECA /* Randomizer.cpp */,
+				A35DC3B01D81FE2000995F07 /* MapManager.cpp */,
+				A35DC3B11D81FE2000995F07 /* MapManager.h */,
 				A3E013121D7F5D1000E12ECA /* main.cpp */,
-				A3E0130D1D7F5D1000E12ECA /* Supporting Files */,
 				A3E013251D7F616500E12ECA /* Game.h */,
 				A3E013261D7F624500E12ECA /* Game.cpp */,
 				A3E0132F1D7F9DC900E12ECA /* Projectile.h */,
 				A3E0132C1D7F9D7700E12ECA /* Entity.h */,
-				A3E013341D7F9DF300E12ECA /* EntityManager.h */,
 				A3E013281D7F97AD00E12ECA /* StringHelp.h */,
 				A3E0132D1D7F9D9D00E12ECA /* frameData.h */,
 				A3E0132E1D7F9DB500E12ECA /* Randomizer.h */,
 				A3E013391D7F9F0A00E12ECA /* tinyxml2.h */,
 				A3E0132B1D7F9D5700E12ECA /* PlayerEntity.h */,
+				A3F8B6991D807A490021A53E /* Camera.cpp */,
+				A3F8B69A1D807A490021A53E /* Camera.hpp */,
+				A3E0130D1D7F5D1000E12ECA /* Supporting Files */,
 			);
 			path = BoilThisPlate;
 			sourceTree = "<group>";
@@ -201,8 +211,10 @@
 			files = (
 				A3E013321D7F9DD600E12ECA /* Projectile.cpp in Sources */,
 				A3E013331D7F9DD600E12ECA /* Randomizer.cpp in Sources */,
+				A35DC3B21D81FE2000995F07 /* MapManager.cpp in Sources */,
 				A3E013271D7F624500E12ECA /* Game.cpp in Sources */,
 				A3E0132A1D7F9D4600E12ECA /* PlayerEntity.cpp in Sources */,
+				A3F8B69B1D807A490021A53E /* Camera.cpp in Sources */,
 				A3E0133B1D7F9F8A00E12ECA /* tinyxml2.cpp in Sources */,
 				A3E013371D7F9E0200E12ECA /* Entity.cpp in Sources */,
 				A3E013381D7F9E0200E12ECA /* EntityManager.cpp in Sources */,

@@ -8,6 +8,7 @@
 #include "Projectile.h"
 #include "EntityManager.h"
 //#include "MapManager.h"
+#include "Camera.hpp"
 
 
 
@@ -41,17 +42,15 @@ PlayerEntity::PlayerEntity(sf::Texture* pTexture)
     mFramesUntilHealthy=0;
 
     // initial position and momentum
-    mPosition.x=100;
-    mPosition.y=100;
+    mPosition.x=96*16;
+    mPosition.y=16*16;
     mVelocity=sf::Vector2f(0.f,0.f);
     mAcceleration=sf::Vector2f(0.f,0.f);
-    mSize=sf::Vector2f(24.f,48.f);
+    mSize=sf::Vector2f(10.f,mDefaultHeight);
 
     // set texture to argument
     mSprite.setTexture(*pTexture);
 
-    // set pixels to large!
-    mSprite.setScale(4,4);
 
     readFramesDataFromFile("assets/hoodie_spritesheet.xml");
 
@@ -68,7 +67,7 @@ void PlayerEntity::update(sf::Time deltaTime)
     sf::Vector2f totalForces=sf::Vector2f(0.f,0.f);
 
     int height=TheGame::Instance()->getDisplayHeight();
-    int horizon=height/8;
+    int horizon=25*16;
 
     // get the tile under foot.
 
@@ -77,6 +76,11 @@ void PlayerEntity::update(sf::Time deltaTime)
     bool bDuckKeyPressed=sf::Keyboard::isKeyPressed(sf::Keyboard::S);
     bool bJumpKeyPressed=sf::Keyboard::isKeyPressed(sf::Keyboard::W);
     bool bAttackKeyPressed=sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
+    bool bZoomOut=sf::Keyboard::isKeyPressed(sf::Keyboard::LBracket);
+    bool bZoomIn=sf::Keyboard::isKeyPressed(sf::Keyboard::RBracket);
+    
+    if (bZoomOut) {TheGame::Instance()->zoomOut();}
+    if (bZoomIn) {TheGame::Instance()->zoomIn();}
 
 
     const float playerRunForce = 0.05f;
@@ -363,16 +367,25 @@ void PlayerEntity::update(sf::Time deltaTime)
 
 
     mFramesUntilNextAnimationFrame--;
+    
+    // Move camera to focus player position
+    TheCamera::Instance()->setFocalPoint(mPosition.x,mPosition.y);
 }
 
 void PlayerEntity::render()
 {
     int x=0, y=0, w=0, h=0, oX=0, oY=0; // these we'll eventually read from xml
     int spriteOffsetX=0, spriteOffsetY=mIsDucking?-24:-28;
+    
+    // set height based on standing or ducking
+    mSize.y=mIsDucking?mDuckingHeight:mDefaultHeight;
+    
+    // set pixels to game scale!
+    mSprite.setScale(TheGame::Instance()->getScale(),TheGame::Instance()->getScale());
 
     if (mFacing==RIGHT)
     {
-        spriteOffsetX = -12;
+        spriteOffsetX = -mSize.x*0.5;
 
         x=mFramesData.at(mFrame).x;
         y=mFramesData.at(mFrame).y;
@@ -384,7 +397,7 @@ void PlayerEntity::render()
 
     else if (mFacing==LEFT)
     {
-        spriteOffsetX=0-mFramesData.at(mFrame).w;
+        spriteOffsetX=(mSize.x*0.5)-mFramesData.at(mFrame).w;
 
         x=mFramesData.at(mFrame).x+mFramesData.at(mFrame).w;
         y=mFramesData.at(mFrame).y;
@@ -397,10 +410,10 @@ void PlayerEntity::render()
     sf::IntRect rect = sf::IntRect(x,y,w,h);
     mSprite.setTextureRect(rect);
 
-
+    drawBoundingBox();
     if (!(mIsHurting&&(mAge%10<5))) {
 
-    mSprite.setPosition((mPosition.x+spriteOffsetX)*4,(mPosition.y+spriteOffsetY)*4);
+        mSprite.setPosition((mPosition.x+spriteOffsetX-TheCamera::Instance()->getOffset().x)*TheGame::Instance()->getScale(),(mPosition.y+spriteOffsetY-TheCamera::Instance()->getOffset().y)*TheGame::Instance()->getScale());
     TheGame::Instance()->getRenderTexture()->draw(mSprite);
     }
     TheGame::Instance()->drawMarker(mPosition.x, mPosition.y);

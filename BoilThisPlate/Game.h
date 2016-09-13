@@ -17,8 +17,6 @@ class Game
 {
 public:
 
-    static const int Scale; 
-
     // return instance for singleton
     static Game * Instance()
     {
@@ -32,6 +30,7 @@ public:
 
     void run();
     void drawMarker(int x, int y);
+    void drawGrid();
 
     sf::RenderWindow * getWindow()
     {
@@ -43,10 +42,15 @@ public:
     }
     int getDisplayWidth() {return DisplayWidth;}
     int getDisplayHeight() {return DisplayHeight;}
+    float getScale() {return Scale;}
+    void zoomIn();
+    void zoomOut();
 
 private:
     Game();
     void processEvents();
+    
+    void init();
     void update(sf::Time deltaTime);
     void render();
     void updateStatistics(sf::Time elapsedTime);
@@ -63,9 +67,14 @@ private:
     static const int DisplayHeight;
     static const bool Fullscreen;
     static const bool VSync;
+    
+    float Scale;
 
-
-    sf::Font				mFont;
+    sf::Font				mSmallFont;
+    sf::Font				mStatisticsFont;
+    
+    sf::Text				mSmallText;
+    
     sf::Text				mStatisticsText;
     sf::Time				mStatisticsUpdateTime;
     std::size_t				mStatisticsNumFrames;
@@ -73,6 +82,7 @@ private:
 
     sf::Texture mPlayerTexture;
     sf::Texture mMarker;
+    sf::Texture mMapTileset;
 
 
 };

@@ -22,6 +22,7 @@ public:
     void render();
     void pushEntity(Entity * pEntity);
     std::vector<Entity*> * getEntites() {return &mEntities;}
+    Entity * getPlayer();
 private:
     void handleCollisionBetween(Entity* FirstEntity, Entity * SecondEntity);
     EntityManager() {}

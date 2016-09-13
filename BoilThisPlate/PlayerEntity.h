@@ -22,7 +22,6 @@ private:
     int mFrame;
     int mFramesUntilNextAnimationFrame;
     int mFramesUntilAction;
-
     int mFramesUntilHealthy;
 
     // State bools
@@ -35,6 +34,9 @@ private:
     bool mIsHurting;
     bool mJustGotHit;
     bool mIsRolling;
+    
+    const float mDefaultHeight=24.f;
+    const float mDuckingHeight=20.f;
 };
 
 

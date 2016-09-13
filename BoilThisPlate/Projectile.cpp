@@ -32,5 +32,5 @@ void Projectile::update(sf::Time deltaTime)
 
 void Projectile::render()
 {
-
+    drawBoundingBox();
 }
