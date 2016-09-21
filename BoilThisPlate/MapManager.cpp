@@ -153,8 +153,8 @@ int  MapManager::getClipAtScreenPosition(int x, int y)
     int rowoffset=0;
     int coloffset=0;
 
-    int r=rowoffset+(y/32);
-    int c=coloffset+(x/32);
+    int r=rowoffset+(y/16);
+    int c=coloffset+(x/16);
 
     int index=c+(r*mMapWidth);
 
@@ -164,12 +164,16 @@ int  MapManager::getClipAtScreenPosition(int x, int y)
     {
 
         index=c+(r*mMapWidth);
-        if (index >=0 && index < mClipData.size()) // is index in range? out data
+        if (index >=0 && index < mBgData.size()) // is index in range? out data
         {
-            mapTile = mClipData.at(index)-mClipFirstGID;
+            mapTile = mBgData.at(index)-(mBgFirstGID+1);
+        }
+        else
+        {
+            // std::cout << "index out of range! at" << c << ", " << r << endl;
         }
     }
-
+    
     return mapTile;
 }
 

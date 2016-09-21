@@ -7,7 +7,7 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include "Projectile.h"
 #include "EntityManager.h"
-//#include "MapManager.h"
+#include "MapManager.h"
 #include "Camera.hpp"
 
 
@@ -67,9 +67,15 @@ void PlayerEntity::update(sf::Time deltaTime)
     sf::Vector2f totalForces=sf::Vector2f(0.f,0.f);
 
     int height=TheGame::Instance()->getDisplayHeight();
-    int horizon=25*16;
+    //int horizon=25*16;
 
     // get the tile under foot.
+    
+    
+    
+    
+
+    // get keyboard input
 
     bool bA=sf::Keyboard::isKeyPressed(sf::Keyboard::A);
     bool bD=sf::Keyboard::isKeyPressed(sf::Keyboard::D);
@@ -78,7 +84,7 @@ void PlayerEntity::update(sf::Time deltaTime)
     bool bAttackKeyPressed=sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
     bool bZoomOut=sf::Keyboard::isKeyPressed(sf::Keyboard::LBracket);
     bool bZoomIn=sf::Keyboard::isKeyPressed(sf::Keyboard::RBracket);
-    
+
     if (bZoomOut) {TheGame::Instance()->zoomOut();}
     if (bZoomIn) {TheGame::Instance()->zoomIn();}
 
@@ -91,13 +97,13 @@ void PlayerEntity::update(sf::Time deltaTime)
     framesSinceClimbing++;
     mFramesUntilHealthy--;
 
-    if (mPosition.y<horizon) {
+    if (lowerleft==-1&&lowerright==-1) {
         mIsFalling=true;
     } else {
         mIsFalling=false;
         mVelocity.y=0;
         mAcceleration.y=0;
-        mPosition.y=horizon;
+        mPosition.y=16*((int)mPosition.y/16);
     }
 
     // we only want to roll until we first hit the ground
@@ -221,6 +227,23 @@ void PlayerEntity::update(sf::Time deltaTime)
         mFacing=RIGHT;
             }
         totalForces.x+=playerRunForce;
+    }
+    
+    // clip left wall
+    if ((midleft>-1||upperleft>-1)&&(totalForces.x<0||mVelocity.x<0||mAcceleration.x<0))
+    {
+        totalForces.x=0;
+        mVelocity.x=0;
+        mAcceleration.x=0;
+        mPosition.x=(16*((int)(mPosition.x)/16))+mSize.x*0.5;
+    }
+    
+    if ((midright>-1||upperright>-1)&&(totalForces.x>0||mVelocity.x>0||mAcceleration.x>0))
+    {
+        totalForces.x=0;
+        mVelocity.x=0;
+        mAcceleration.x=0;
+        mPosition.x=(16*((int)(mPosition.x)/16+1))-mSize.x*0.5;
     }
 
 
@@ -367,7 +390,7 @@ void PlayerEntity::update(sf::Time deltaTime)
 
 
     mFramesUntilNextAnimationFrame--;
-    
+
     // Move camera to focus player position
     TheCamera::Instance()->setFocalPoint(mPosition.x,mPosition.y);
 }
@@ -376,10 +399,10 @@ void PlayerEntity::render()
 {
     int x=0, y=0, w=0, h=0, oX=0, oY=0; // these we'll eventually read from xml
     int spriteOffsetX=0, spriteOffsetY=mIsDucking?-24:-28;
-    
+
     // set height based on standing or ducking
     mSize.y=mIsDucking?mDuckingHeight:mDefaultHeight;
-    
+
     // set pixels to game scale!
     mSprite.setScale(TheGame::Instance()->getScale(),TheGame::Instance()->getScale());
 
